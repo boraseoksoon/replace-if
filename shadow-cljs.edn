@@ -1,0 +1,18 @@
+;; shadow-cljs configuration
+{:source-paths
+ ["cljs"]
+
+ :dependencies
+ []
+
+ :nrepl {:port 8450} 
+ :dev-http {7777 "public"}
+ :fs-watch {:hawk false}
+
+ :builds
+ {:node {:target :node-library
+         :output-to "cljs_dist/node/index.js"
+         :exports {:replaceIf node.core.fn/replaceIf}}
+  :web {:target :node-library
+   :output-to "cljs_dist/web/index.js"
+	 :exports {:hello web.core.fn/hello}}}}
